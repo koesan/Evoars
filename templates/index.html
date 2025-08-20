@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MultiModel Web Project</title>
+
+<!-- PWA Manifest Bağlantısı -->
+<link rel="manifest" href="/static/manifest.json">
+<!-- Apple Touch İkonu (iOS için) - Logonuzu kullanıyoruz -->
+<link rel="apple-touch-icon" href="/static/images/logo.png">
+<!-- Tema Rengi Meta Etiketi -->
+<meta name="theme-color" content="#252525">
+
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#FD0000',
+                customBlack: '#252525',
+                customBlackHover: '#303030',
+                customBorder: '#383838',
+                lightGreen: '#4ADE80',
+                lightGreenHover: '#34D399'
+            },
+            borderRadius: {
+                'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px',
+                'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px'
+            },
+            zIndex: { '40': '40', '50': '50', '60': '60', '70': '70' }
+        }
+    }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.animate-fadeIn { animation: fadeIn 0.2s ease-out forwards; }
+body {
+    min-height: 100vh;
+    color: #f5f5f5;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-image: url("/static/images/wallpaper.jpg"); /* /static/ yolu kontrol edildi */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #121212;
+}
+
+.custom-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1.5em 1.5em; }
+.custom-checkbox { position: relative; width: 20px; height: 20px; appearance: none; background-color: #303030; /* customBlackHover */ border-radius: 4px; outline: none; cursor: pointer; transition: all 0.3s; }
+.custom-checkbox:checked { background-color: #FD0000; }
+.custom-checkbox:checked::after { content: ''; position: absolute; top: 5px; left: 8px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.file-upload-area {
+    width: 100%;
+    padding: 1rem; /* Azaltılmış padding */
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #383838;
+    border-radius: 0.5rem;
+    transition: border-color 150ms;
+}
+.file-upload-area:hover { border-color: #FD0000;  }
+.upload-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 3.5rem; /* Azaltılmış min-height */
+    cursor: pointer;
+}
+.file-selected-container {
+    display: none;
+    width: 100%;
+}
+.file-list {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+    padding-right: 0.25rem;
+}
+.file-list-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: #303030;
+    padding: 0.5rem; border-radius: 0.25rem; margin-bottom: 0.25rem;
+}
+.file-list-item .file-details { display: flex; align-items: center; overflow: hidden; }
+.file-list-item .file-name-display { font-size: 0.875rem; color: #D1D5DB; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 0.5rem; }
+.file-list-item .remove-single-file-btn {
+    font-size: 0.875rem; color: #F87171; margin-left: 0.5rem; flex-shrink: 0;
+    background: none; border: none; cursor: pointer;
+}
+.file-list-item .remove-single-file-btn:hover { color: #DC2626; }
+.clear-all-files-btn {
+    display: block; width: auto; margin-top: 0.5rem; padding: 0.25rem 0.5rem;
+    font-size: 0.75rem; color: #F87171; background-color: transparent;
+    border: 1px solid #F87171; border-radius: 0.25rem; cursor: pointer; text-align: center;
+}
+.clear-all-files-btn:hover { background-color: rgba(248, 113, 113, 0.1); }
+.file-upload-area input[type="file"] { display: none; }
+
+.modal-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: none; align-items: center; justify-content: center; }
+.modal-content { max-height: 90vh; overflow-y: auto; }
+.modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 40; display: none; }
+.process-button { min-height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.process-button span { display: block; word-break: break-word; }
+.process-button .icons-wrapper { display: flex; gap: 0.5rem; margin-bottom: 0.25rem; }
+
+.horizontal-scroll-custom::-webkit-scrollbar { height: 8px; }
+.horizontal-scroll-custom::-webkit-scrollbar-track { background: #303030;  border-radius: 4px; }
+.horizontal-scroll-custom::-webkit-scrollbar-thumb { background: #6B7280;  border-radius: 4px; }
+.horizontal-scroll-custom::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+.file-list::-webkit-scrollbar { width: 6px; }
+.file-list::-webkit-scrollbar-track { background: #303030;  border-radius: 3px; }
+.file-list::-webkit-scrollbar-thumb { background: #6B7280;  border-radius: 3px; }
+.file-list::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+/* Sidebar History Scrollbar */
+#sidebarHistory::-webkit-scrollbar { width: 6px; }
+#sidebarHistory::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
+#sidebarHistory::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+#sidebarHistory::-webkit-scrollbar-thumb:hover { background: #777; }
+
+</style>
+</head>
+<body class="bg-gray-900">
+<div class="relative min-h-screen w-full flex flex-col main-page-wrapper">
+
+<header class="w-full px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+        <button id="menuButton" class="w-10 h-10 flex items-center justify-center text-white bg-customBlack hover:bg-customBlackHover rounded">
+            <i class="ri-menu-line ri-lg"></i>
+        </button>
+    </div>
+    <div class="relative">
+        <select id="languageSwitcher" class="bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select focus:outline-none focus:ring-2 focus:ring-primary">
+        </select>
+    </div>
+</header>
+
+<main class="flex-1 flex items-center justify-center px-6 py-8">
+<div id="mainContent" class="w-full max-w-2xl">
+
+<div id="processSelection" class="bg-customBlack backdrop-blur-sm rounded-lg p-6 shadow-lg">
+<h2 class="text-xl font-semibold mb-6 text-center" data-translate="select_process_title">Select Process</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+<button id="colorizeBtn" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 process-button border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-palette-line ri-lg"></i>
+    <span data-translate="colorize_btn">Colorize</span>
+</button>
+<button id="translateBtn" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 process-button border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-translate-2 ri-lg"></i>
+    <span data-translate="translate_btn">Translate</span>
+</button>
+<button id="colorizeTranslateBtn" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button process-button border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <div class="icons-wrapper"> <i class="ri-palette-line ri-lg"></i> <i class="ri-translate-2 ri-lg"></i> </div>
+    <span data-translate="colorize_translate_btn">Colorize & Translate</span>
+</button>
+<button id="subtitleBtn" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 process-button border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-closed-captioning-line ri-lg"></i>
+    <span data-translate="subtitle_btn">Subtitles</span>
+</button>
+<button id="dubbingBtn" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 process-button border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-mic-line ri-lg"></i>
+    <span data-translate="dubbing_btn">Dubbing</span>
+</button>
+<button id="mangaBtn" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 process-button border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-book-open-line ri-lg"></i>
+    <span data-translate="manga_btn">Text to Manga</span>
+</button>
+</div>
+
+<div id="dynamicFormArea" class="hidden">
+
+<div id="colorizeForm" class="hidden">
+<div class="mb-6">
+    <div class="file-upload-area">
+        <input type="file" accept="image/*" id="colorizeImage" name="images" multiple>
+        <div class="upload-prompt">
+            <i class="ri-image-add-line ri-2x mb-1 text-gray-400"></i> <!-- İkon boyutu ve margin azaltıldı -->
+            <p class="text-gray-400 text-sm" data-translate="upload_image_prompt">Click or drag to upload image(s)</p>
+            <p class="text-gray-500 text-xs" data-translate="upload_image_formats_size">PNG, JPG or WEBP (max. 10MB)</p>
+        </div>
+        <div class="file-selected-container">
+            <div class="file-list"></div>
+            <button type="button" class="clear-all-files-btn" data-translate="remove_image_btn" style="display: none;">Remove All Images</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="translateForm" class="hidden">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div>
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="source_language_label">Source Language</label>
+<select name="source-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="target_language_label">Target Language</label>
+<select name="target-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+</div>
+</div>
+<div class="mb-6">
+    <div class="file-upload-area">
+        <input type="file" accept="image/*" id="translateImage" name="images" multiple>
+        <div class="upload-prompt">
+            <i class="ri-image-add-line ri-2x mb-1 text-gray-400"></i>
+            <p class="text-gray-400 text-sm" data-translate="upload_image_prompt">Click or drag to upload image(s)</p>
+            <p class="text-gray-500 text-xs" data-translate="upload_image_formats_size">PNG, JPG or WEBP (max. 10MB)</p>
+        </div>
+        <div class="file-selected-container">
+            <div class="file-list"></div>
+            <button type="button" class="clear-all-files-btn" data-translate="remove_image_btn" style="display: none;">Remove All Images</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="colorizeTranslateForm" class="hidden">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div>
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="source_language_label">Source Language</label>
+<select name="source-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="target_language_label">Target Language</label>
+<select name="target-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+</div>
+</div>
+<div class="mb-6">
+    <div class="file-upload-area">
+        <input type="file" accept="image/*" id="colorizeTranslateImage" name="images" multiple>
+        <div class="upload-prompt">
+            <i class="ri-image-add-line ri-2x mb-1 text-gray-400"></i>
+            <p class="text-gray-400 text-sm" data-translate="upload_image_prompt">Click or drag to upload image(s)</p>
+            <p class="text-gray-500 text-xs" data-translate="upload_image_formats_size">PNG, JPG or WEBP (max. 10MB)</p>
+        </div>
+        <div class="file-selected-container">
+            <div class="file-list"></div>
+            <button type="button" class="clear-all-files-btn" data-translate="remove_image_btn" style="display: none;">Remove All Images</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="subtitleForm" class="hidden">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div>
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="source_language_label">Source Language</label>
+<select name="source-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="target_language_label">Target Language</label>
+<select name="target-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+</div>
+</div>
+<div class="mb-6">
+    <div class="file-upload-area">
+        <input type="file" accept="video/*" id="subtitleVideo" name="video_file_subtitle">
+        <div class="upload-prompt">
+            <i class="ri-video-add-line ri-2x mb-1 text-gray-400"></i>
+            <p class="text-gray-400 text-sm" data-translate="upload_video_prompt">Click or drag to upload video</p>
+            <p class="text-gray-500 text-xs" data-translate="upload_video_formats_size">MP4, MOV or AVI (max. 100MB)</p>
+        </div>
+        <div class="file-selected-container">
+            <div class="file-list"></div>
+            <button type="button" class="clear-all-files-btn" data-translate="remove_video_btn" style="display: none;">Remove Video</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="dubbingForm" class="hidden">
+    <div class="mb-6">
+        <div class="flex items-center justify-center gap-8 mb-6">
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="dubbing-type" value="auto" class="custom-checkbox" checked>
+                <span data-translate="auto_dubbing_label">Auto Dubbing</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="dubbing-type" value="manual" class="custom-checkbox">
+                <span data-translate="manual_dubbing_label">Manual Dubbing</span>
+            </label>
+        </div>
+
+        <div id="autoDubbingOptions">
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="target_language_label">Target Dubbing Language</label>
+                <!-- NAME DEĞİŞTİRİLDİ -> dubbing-lang -->
+                <select name="dubbing-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+            </div>
+            <div class="file-upload-area">
+                <input type="file" accept="video/*" id="autoDubbingVideo" name="video-file">
+                <div class="upload-prompt">
+                    <i class="ri-video-add-line ri-2x mb-1 text-gray-400"></i>
+                    <p class="text-gray-400 text-sm" data-translate="upload_video_prompt">Click or drag to upload video</p>
+                    <p class="text-gray-500 text-xs" data-translate="upload_video_formats_size">MP4, MOV or AVI (max. 100MB)</p>
+                </div>
+                <div class="file-selected-container">
+                    <div class="file-list"></div>
+                    <button type="button" class="clear-all-files-btn" data-translate="remove_video_btn" style="display: none;">Remove Video</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="manualDubbingOptions" class="hidden">
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="target_language_label">Target Dubbing Language</label>
+                <!-- NAME DEĞİŞTİRİLDİ -> dubbing-lang -->
+                <select name="dubbing-lang" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3 pr-8 custom-select"> </select>
+            </div>
+            <div class="mb-4">
+                <div class="file-upload-area">
+                    <input type="file" accept=".srt" id="manualDubbingSrt" name="srt-file">
+                    <div class="upload-prompt">
+                        <i class="ri-file-text-line ri-2x mb-1 text-gray-400"></i>
+                        <p class="text-gray-400 text-sm" data-translate="upload_srt_prompt">Upload SRT file</p>
+                        <p class="text-gray-500 text-xs" data-translate="upload_srt_formats_size">SRT (max. 5MB)</p>
+                    </div>
+                    <div class="file-selected-container">
+                        <div class="file-list"></div>
+                        <button type="button" class="clear-all-files-btn" data-translate="remove_file_btn" style="display: none;">Remove File</button>
+                    </div>
+                </div>
+            </div>
+            <div class="file-upload-area">
+                 <!-- MANUEL VİDEO INPUT'UNUN NAME'İNİ DE video-file YAPALIM (JS'deki beklenti bu yöndeydi) -->
+                <input type="file" accept="video/*" id="manualDubbingVideo" name="video-file"> 
+                <div class="upload-prompt">
+                    <i class="ri-video-add-line ri-2x mb-1 text-gray-400"></i>
+                    <p class="text-gray-400 text-sm" data-translate="upload_video_for_manual_dub_prompt">Click to upload video</p>
+                    <p class="text-gray-500 text-xs" data-translate="upload_video_formats_size">MP4, MOV or AVI (max. 100MB)</p>
+                </div>
+                <div class="file-selected-container">
+                    <div class="file-list"></div>
+                    <button type="button" class="clear-all-files-btn" data-translate="remove_video_btn" style="display: none;">Remove Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mangaForm" class="hidden">
+<div class="mb-6">
+<label class="block text-sm font-medium text-gray-400 mb-2" data-translate="manga_text_label">Text for Manga</label>
+<textarea name="manga_text" class="w-full bg-customBlack border border-customBorder text-white rounded p-3 min-h-32" data-translate-placeholder="manga_text_placeholder" placeholder="Enter text to create manga..."></textarea>
+</div>
+</div>
+
+<div class="flex justify-center mt-6">
+<button id="submitBtn" type="button" class="bg-primary hover:bg-red-700 text-white py-3 px-8 rounded !rounded-button font-medium">
+<span data-translate="submit_btn">Submit</span>
+</button>
+</div>
+</div>
+</div>
+
+<div id="resultsArea" class="hidden bg-customBlack rounded-lg p-6 shadow-lg">
+    <h2 class="text-xl font-semibold mb-6 text-center" data-translate="result_title">Process Result</h2>
+    <div id="loadingIndicator" class="hidden flex flex-col items-center justify-center my-8">
+        <svg class="animate-spin -ml-1 mr-3 h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <p class="mt-2 text-gray-400" data-translate="processing_text">Processing, please wait...</p>
+    </div>
+    <div id="resultContent" class="mb-6">
+    </div>
+    <div class="flex justify-center">
+        <button id="submitAgainBtn" type="button" class="bg-primary hover:bg-red-700 text-white py-3 px-8 rounded !rounded-button font-medium">
+            <span data-translate="new_process_btn">New Process</span>
+        </button>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+<!-- Sidebar Menüsü -->
+<div id="sidebarMenu" class="fixed top-0 left-0 h-full w-64 bg-customBlack/90 backdrop-blur-sm transform -translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
+
+    <div class="px-6 py-4 flex-shrink-0 border-b border-white border-opacity-20">
+
+        <div class="relative flex items-center justify-center">
+            <!-- Logo (Ortada) -->
+            <a href="#" class="block">
+                <img src="/static/images/logo.png" alt="Site Logo Sidebar" class="h-16 w-auto"> 
+            </a>
+
+            <button id="closeSidebarBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white">
+                <i class="ri-close-line ri-lg"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Orta Kısım: Geçmiş İşlemler (Kaydırılabilir) -->
+    <div id="sidebarHistory" class="flex-grow overflow-y-auto px-4 space-y-3 py-4">
+        <!-- Geçmiş öğeleri JavaScript ile buraya eklenecek -->
+    </div>
+
+    <!-- Alt Kısım: Navigasyon Butonları -->
+    <div class="p-6 border-t border-white border-opacity-20 flex-shrink-0">
+        <nav>
+            <ul class="space-y-3">
+                <li>
+                    <button id="registerBtnSidebar" type="button"
+                            class="w-full text-left py-2 px-3 rounded hover:bg-customBlackHover text-gray-300 hover:text-white flex items-center
+                                   border border-gray-500 border-opacity-50 hover:border-white hover:border-opacity-75 transition-all duration-150">
+                        <i class="ri-user-add-line mr-3"></i>
+                        <span data-translate="register_btn_sidebar">Sign Up</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="loginBtnSidebar" type="button"
+                            class="w-full text-left py-2 px-3 rounded hover:bg-customBlackHover text-gray-300 hover:text-white flex items-center
+                                   border border-gray-500 border-opacity-50 hover:border-white hover:border-opacity-75 transition-all duration-150">
+                        <i class="ri-login-box-line mr-3"></i>
+                        <span data-translate="login_btn_sidebar">Login</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="purchaseBtnSidebar" type="button"
+                            class="w-full text-left py-2 px-3 rounded hover:bg-customBlackHover text-gray-300 hover:text-white flex items-center
+                                   border border-gray-500 border-opacity-50 hover:border-white hover:border-opacity-75 transition-all duration-150">
+                        <i class="ri-shopping-cart-line mr-3"></i>
+                        <span data-translate="purchase_btn_sidebar">Purchase</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div id="modalBackdrop" class="modal-backdrop"></div>
+
+<div id="registerModalWrapper" class="modal-wrapper z-60"> <div id="registerModal" class="modal-content w-full max-w-md bg-customBlack rounded-lg shadow-xl p-6 animate-fadeIn"> <div class="flex justify-between items-center mb-6"> <h3 class="text-xl font-semibold" data-translate="register_modal_title">Sign Up</h3> <button type="button" class="closeModal w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white"> <i class="ri-close-line ri-lg"></i> </button> </div> <form> <div class="mb-4"> <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="fullname_label">Full Name</label> <input type="text" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3" data-translate-placeholder="fullname_placeholder" placeholder="Your Full Name"> </div> <div class="mb-4"> <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="email_label">Email</label> <input type="email" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3" data-translate-placeholder="email_placeholder" placeholder="example@mail.com"> </div> <div class="mb-4"> <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="password_label">Password</label> <input type="password" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3" data-translate-placeholder="password_placeholder" placeholder="********"> </div> <div class="mb-6"> <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="confirm_password_label">Confirm Password</label> <input type="password" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3" data-translate-placeholder="password_placeholder" placeholder="********"> </div> <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white py-3 rounded !rounded-button font-medium"><span data-translate="register_submit_btn">Sign Up</span></button> </form> </div> </div>
+
+<div id="loginModalWrapper" class="modal-wrapper z-60"> <div id="loginModal" class="modal-content w-full max-w-md bg-customBlack rounded-lg shadow-xl p-6 animate-fadeIn"> <div class="flex justify-between items-center mb-6"> <h3 class="text-xl font-semibold" data-translate="login_modal_title">Login</h3> <button type="button" class="closeModal w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white"> <i class="ri-close-line ri-lg"></i> </button> </div> <form> <div class="mb-4"> <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="email_label">Email</label> <input type="email" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3" data-translate-placeholder="email_placeholder" placeholder="example@mail.com"> </div> <div class="mb-6"> <label class="block text-sm font-medium text-gray-400 mb-2" data-translate="password_label">Password</label> <input type="password" class="w-full bg-customBlack border border-customBorder text-white rounded py-2 px-3" data-translate-placeholder="password_placeholder" placeholder="********"> </div> <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white py-3 rounded !rounded-button font-medium"><span data-translate="login_submit_btn">Login</span></button> <div class="mt-4 text-center"> <a href="#" class="text-sm text-gray-400 hover:text-white" data-translate="forgot_password_link">Forgot Password?</a> </div> </form> </div> </div>
+
+<div id="purchaseModalWrapper" class="modal-wrapper z-60"> <div id="purchaseModal" class="modal-content w-full max-w-md bg-customBlack rounded-lg shadow-xl p-6 animate-fadeIn"> <div class="flex justify-between items-center mb-6"> <h3 class="text-xl font-semibold" data-translate="purchase_modal_title">Purchase</h3> <button type="button" class="closeModal w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white"> <i class="ri-close-line ri-lg"></i> </button> </div> <div class="mb-6"> <div class="grid grid-cols-1 gap-4">
+<button id="creditBtn" type="button" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-coin-line"></i> <span data-translate="buy_credits_btn">Buy Credits</span>
+</button>
+<button id="businessBtn" type="button" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-building-line"></i> <span data-translate="business_package_btn">Business Package</span>
+</button>
+<button id="apiBtn" type="button" class="bg-customBlack hover:bg-customBlackHover text-white py-3 px-4 rounded !rounded-button flex items-center justify-center gap-2 border border-white border-opacity-30 hover:border-opacity-60 transition-all duration-150">
+    <i class="ri-code-line"></i> <span data-translate="api_access_btn">API Access</span>
+</button>
+</div> </div> </div> </div>
+
+<div id="creditPurchaseModalWrapper" class="modal-wrapper z-60"> <div id="creditPurchaseModal" class="modal-content w-full max-w-md bg-customBlack rounded-lg shadow-xl p-6 animate-fadeIn"> <div class="flex justify-between items-center mb-6"> <h3 class="text-xl font-semibold" data-translate="credit_purchase_modal_title">Buy Credits</h3> <button type="button" class="closeModal w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white"> <i class="ri-close-line ri-lg"></i> </button> </div> <div class="mb-6"> <div class="grid grid-cols-1 gap-4">
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150 cursor-pointer">
+    <div class="flex justify-between items-center"> <div> <h4 class="font-semibold" data-translate="credit_100_title">100 Credits</h4> <p class="text-gray-400 text-sm" data-translate="credit_100_desc">Basic Package</p> </div> <div class="text-right"> <p class="font-semibold">₺49.99</p> <button type="button" class="mt-2 bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150 cursor-pointer">
+    <div class="flex justify-between items-center"> <div> <h4 class="font-semibold" data-translate="credit_500_title">500 Credits</h4> <p class="text-gray-400 text-sm" data-translate="credit_500_desc">Standard Package</p> </div> <div class="text-right"> <p class="font-semibold">₺199.99</p> <button type="button" class="mt-2 bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150 cursor-pointer">
+    <div class="flex justify-between items-center"> <div> <h4 class="font-semibold" data-translate="credit_1000_title">1000 Credits</h4> <p class="text-gray-400 text-sm" data-translate="credit_1000_desc">Premium Package</p> </div> <div class="text-right"> <p class="font-semibold">₺349.99</p> <button type="button" class="mt-2 bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+</div> </div> </div> </div>
+
+<div id="businessPackageModalWrapper" class="modal-wrapper z-60"> <div id="businessPackageModal" class="modal-content w-full max-w-md bg-customBlack rounded-lg shadow-xl p-6 animate-fadeIn"> <div class="flex justify-between items-center mb-6"> <h3 class="text-xl font-semibold" data-translate="business_package_modal_title">Business Package</h3> <button type="button" class="closeModal w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white"> <i class="ri-close-line ri-lg"></i> </button> </div> <div class="mb-6"> <div class="grid grid-cols-1 gap-4">
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150">
+    <div class="flex flex-col"> <h4 class="font-semibold text-lg mb-2" data-translate="business_monthly_title">Monthly Plan</h4> <ul class="space-y-2 mb-4"> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_monthly_feat1">5000 credits/month</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_monthly_feat2">Priority processing queue</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_monthly_feat3">24/7 technical support</span></li> </ul> <div class="flex justify-between items-center"> <p class="font-semibold">₺999.99/month</p> <button type="button" class="bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150">
+    <div class="flex flex-col"> <h4 class="font-semibold text-lg mb-2" data-translate="business_yearly_title">Yearly Plan</h4> <ul class="space-y-2 mb-4"> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_yearly_feat1">8000 credits/month</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_yearly_feat2">Priority processing queue</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_yearly_feat3">24/7 technical support</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="business_yearly_feat4">Custom training & consulting</span></li> </ul> <div class="flex justify-between items-center"> <p class="font-semibold">₺9999.99/year</p> <button type="button" class="bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+</div> </div> </div> </div>
+
+<div id="apiAccessModalWrapper" class="modal-wrapper z-60"> <div id="apiAccessModal" class="modal-content w-full max-w-md bg-customBlack rounded-lg shadow-xl p-6 animate-fadeIn"> <div class="flex justify-between items-center mb-6"> <h3 class="text-xl font-semibold" data-translate="api_access_modal_title">API Access</h3> <button type="button" class="closeModal w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white"> <i class="ri-close-line ri-lg"></i> </button> </div> <div class="mb-6"> <div class="grid grid-cols-1 gap-4">
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150">
+    <div class="flex flex-col"> <h4 class="font-semibold text-lg mb-2" data-translate="api_starter_title">Starter API</h4> <ul class="space-y-2 mb-4"> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_starter_feat1">1000 API calls/month</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_starter_feat2">Basic functions</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_starter_feat3">Email support</span></li> </ul> <div class="flex justify-between items-center"> <p class="font-semibold">₺1499.99/month</p> <button type="button" class="bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+<div class="bg-customBlackHover p-4 rounded border border-white border-opacity-20 hover:border-opacity-50 transition-all duration-150">
+    <div class="flex flex-col"> <h4 class="font-semibold text-lg mb-2" data-translate="api_pro_title">Professional API</h4> <ul class="space-y-2 mb-4"> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_pro_feat1">10000 API calls/month</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_pro_feat2">All functions</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_pro_feat3">24/7 technical support</span></li> <li class="flex items-start"><i class="ri-check-line text-green-500 mr-2 mt-1"></i><span data-translate="api_pro_feat4">Custom integration support</span></li> </ul> <div class="flex justify-between items-center"> <p class="font-semibold">₺4999.99/month</p> <button type="button" class="bg-primary hover:bg-red-700 text-white py-1 px-3 text-sm rounded !rounded-button"><span data-translate="buy_btn">Buy</span></button> </div> </div>
+</div>
+</div> </div> </div> </div>
+
+<div id="imageZoomModalWrapper" class="modal-wrapper z-70"> <div id="imageZoomModal" class="modal-content bg-customBlack/80 backdrop-blur-sm rounded-lg shadow-xl p-2 sm:p-4 relative w-[95vw] h-[95vh] max-w-[1200px] max-h-[900px] flex flex-col animate-fadeIn"> <button type="button" class="closeZoomModal absolute top-2 right-2 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 hover:bg-opacity-75 rounded-full"> <i class="ri-close-line ri-xl"></i> </button> <div class="flex-grow flex items-center justify-center overflow-hidden p-2"> <img id="zoomedImage" src="" alt="Zoomed Image" class="max-w-full max-h-full object-contain block select-none"/> </div> </div> </div>
+
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>

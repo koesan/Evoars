@@ -1,0 +1,34 @@
+// static/manifest.json
+{
+  "name": "MultiModel Web Project",
+  "short_name": "multimodel",
+  "description": "Colorize, translate images, add subtitles, dub videos, and create manga from text.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#252525",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/images/logo.png", // Ana logonuz
+      "sizes": "192x192",        // Tarayıcıya bu boyutta olduğunu bildiriyoruz
+      "type": "image/png",
+      "purpose": "any maskable"  // Maskable özelliği, logonuzun şekline bağlı olarak
+                                 // Android'de iyi görünmeyebilir. Basit kare/daire ise sorun olmaz.
+    },
+    {
+      "src": "/static/images/logo.png", // Ana logonuz
+      "sizes": "512x512",        // Daha büyük bir boyut bildirimi
+      "type": "image/png"
+    }
+    // İsterseniz logonuzun farklı boyutlarda (örneğin 72x72, 144x144)
+    // kopyalarını oluşturup buraya ekleyebilirsiniz.
+    // Tarayıcılar genellikle en uygun olanı seçer veya ölçeklendirir.
+    // Örnek:
+    // {
+    //   "src": "/static/logo-72.png", // logo.png'nin 72x72 versiyonu
+    //   "sizes": "72x72",
+    //   "type": "image/png"
+    // },
+  ]
+}
