@@ -1,6 +1,7 @@
 # Evoars: multi model web platformu
 
-
+| ![Evoars Web Ekran Görüntüsü](images/web.png) | ![Evoars Web Ekran Görüntüsü 2](images/web2.png) |
+|:---:|:---:|
 
 -----
 
