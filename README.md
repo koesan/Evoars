@@ -1,4 +1,4 @@
-# Evoars: multi AI model web platformu
+# Evoars: Multi AI Model Web Platform
 
 | ![Evoars Web Ekran Görüntüsü](images/web.png) | ![Evoars Web Ekran Görüntüsü 2](images/web2.png) |
 |:---:|:---:|
