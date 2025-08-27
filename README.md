@@ -3,6 +3,13 @@
 | ![Evoars Web Ekran Görüntüsü](images/web.png) | ![Evoars Web Ekran Görüntüsü 2](images/web2.png) |
 |:---:|:---:|
 
+## 📎 Demo (Eski Sürüm) – Demo (Old Version)
+
+[![Hugging Face](https://huggingface.co/front/assets/huggingface_logo-noborder.svg)](https://huggingface.co/spaces/koesan/mangaspaces)
+
+**🇹🇷 Evoars'ın önceki sürümünü Hugging Face üzerinde test etmek için yukarıdaki simgeye tıklayabilirsiniz.**  
+**🇬🇧 You can click the icon above to test an older version of Evoars on Hugging Face.**
+
 -----
 
 ## English
