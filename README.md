@@ -5,7 +5,7 @@
 
 ## 📎 Demo (Eski Sürüm) – Demo (Old Version)
 
-[![Hugging Face](https://huggingface.co/front/assets/huggingface_logo-noborder.svg)](https://huggingface.co/spaces/koesan/mangaspaces)
+[![Hugging Face](https://img.shields.io/badge/HuggingFace-%23FF9900.svg?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/spaces/koesan/mangaspaces)
 
 **🇹🇷 Evoars'ın önceki sürümünü Hugging Face üzerinde test etmek için yukarıdaki simgeye tıklayabilirsiniz.**  
 **🇬🇧 You can click the icon above to test an older version of Evoars on Hugging Face.**
