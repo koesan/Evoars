@@ -32,6 +32,11 @@
 **🇬🇧 Try the previous version of Evoars on Hugging Face (CPU-based, processing may be slower)**  
 **🇹🇷 Evoars'ın önceki sürümünü Hugging Face'te test edin (CPU tabanlı, işlem daha yavaş olabilir)**
 
+These repositories contain earlier versions of the project (archived/previous work):
+
+- [Manga Comic Colorization and Translation v2](https://github.com/koesan/Manga_Comic_Colorization_and_Translation_v2)
+- [manga_cizgi_roman_ceviri_v1](https://github.com/koesan/manga_cizgi_roman_ceviri_v1)
+  
 </div>
 
 ---
@@ -379,15 +384,6 @@ python app.py
 3. Değişiklikleri commit edin (`git commit -m 'Yeni özellik ekle'`)
 4. Dala push edin (`git push origin feature/yeni-ozellik`)
 5. Pull Request oluşturun
-
----
-
-## 🔁 Previous Versions / Eski Sürümler
-
-These repositories contain earlier versions of the project (archived/previous work):
-
-- [Manga Comic Colorization and Translation v2](https://github.com/koesan/Manga_Comic_Colorization_and_Translation_v2) — previous (v2) implementation with alternate pipeline.  
-- [manga_cizgi_roman_ceviri_v1](https://github.com/koesan/manga_cizgi_roman_ceviri_v1) — original v1 prototype (Turkish).
 
 ---
 
