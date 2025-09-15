@@ -36,7 +36,7 @@ These repositories contain earlier versions of the project (archived/previous wo
 
 - [Manga Comic Colorization and Translation v2](https://github.com/koesan/Manga_Comic_Colorization_and_Translation_v2)
 - [manga_cizgi_roman_ceviri_v1](https://github.com/koesan/manga_cizgi_roman_ceviri_v1)
-  
+
 </div>
 
 ---
