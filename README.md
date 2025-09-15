@@ -227,20 +227,6 @@ python app.py
    - Replace original audio track
 5. Download fully dubbed video
 
-### 🔧 Performance & Optimization
-
-- **GPU Processing**: Automatically detects and uses NVIDIA GPU for faster processing
-- **Memory Management**: Efficiently handles large files and batch processing
-- **Model Caching**: Reuses loaded AI models for multiple operations
-- **Quality Settings**: Balances processing speed with output quality
-
-### 🐛 Troubleshooting
-
-**GPU Memory Issues**: Reduce image size or switch to CPU processing  
-**Translation Errors**: Verify DeepL API key is correctly configured in both files  
-**Model Loading Issues**: Ensure `generator.zip` is properly extracted to `networks/` folder  
-**Video Processing Errors**: Check video format compatibility and file size limits
-
 ### 🤝 Contributing
 
 1. Fork the repository
@@ -451,20 +437,6 @@ python app.py
    - Orijinal video zamanlamasıyla senkronize edecek
    - Orijinal ses parçasını değiştirecek
 5. Tam dublajlı videoyu indirin
-
-### 🔧 Performans ve Optimizasyon
-
-- **GPU İşleme**: Daha hızlı işlem için NVIDIA GPU'yu otomatik algılar ve kullanır
-- **Bellek Yönetimi**: Büyük dosyaları ve toplu işlemeyi verimli şekilde yönetir
-- **Model Önbellekleme**: Yüklenen AI modellerini birden fazla işlem için yeniden kullanır
-- **Kalite Ayarları**: İşlem hızı ile çıktı kalitesi arasında denge kurar
-
-### 🐛 Sorun Giderme
-
-**GPU Bellek Sorunları**: Görüntü boyutunu küçültün veya CPU işlemeye geçin  
-**Çeviri Hataları**: DeepL API anahtarının her iki dosyada da doğru yapılandırıldığını doğrulayın  
-**Model Yükleme Sorunları**: `generator.zip` dosyasının `networks/` klasörüne düzgün çıkarıldığından emin olun  
-**Video İşleme Hataları**: Video format uyumluluğunu ve dosya boyutu limitlerini kontrol edin
 
 ### 🤝 Katkıda Bulunma
 
