@@ -182,50 +182,37 @@ python app.py
 ### 💡 Usage Guide
 
 #### Manga Colorization
-1. Upload your black-and-white manga images
-2. Select "Colorize" operation
-3. Wait for AI processing to complete
-4. Download your colorized manga
+1. Upload black-and-white manga
+2. Choose **Colorize**
+3. Wait for AI to process
+4. Download colored manga
 
 #### Manga Translation
-1. Upload manga images containing text (any language)
-2. Choose source and target languages
-3. Select "Translate" operation
-4. System will:
-   - Detect all text on the page
-   - Group text into readable sentences
-   - Remove original text using AI inpainting
-   - Add translated text in appropriate positions
-5. Download manga with translated text
+1. Upload manga with text
+2. Choose source & target languages
+3. Select **Translate**
+4. System detects, removes, and replaces text with translation
+5. Download translated manga
 
-#### Combined Processing
-1. Upload manga images
-2. Select "Both" for colorization + translation
-3. Configure language settings
-4. Get fully processed manga (colored + translated)
+#### Combined (Color + Translate)
+1. Upload manga
+2. Choose **Both**
+3. Set languages
+4. Download fully processed manga
 
 #### Video Subtitling
-1. Upload video file (MP4, MOV, AVI, etc.)
-2. Select "Subtitle" operation
-3. Choose source language for speech recognition
-4. System will:
-   - Extract audio from video
-   - Transcribe speech using AI
-   - Translate to target language
-   - Generate properly formatted SRT file
-5. Download generated subtitle file
+1. Upload video (MP4, MOV, AVI…)
+2. Select **Subtitle**
+3. Choose source language
+4. System transcribes, translates, and creates SRT file
+5. Download subtitles
 
 #### AI Dubbing
-1. Upload both video file and SRT subtitle file
-2. Select "Dubbing" operation
-3. Choose target language and voice characteristics
-4. System will:
-   - Analyze original speaker voices
-   - Clone voice characteristics
-   - Generate new audio using translated text
-   - Synchronize with original video timing
-   - Replace original audio track
-5. Download fully dubbed video
+1. Upload video + SRT file
+2. Select **Dubbing**
+3. Choose target language & voice style
+4. System clones voices, generates audio, syncs with video
+5. Download dubbed video
 
 ### 🤝 Contributing
 
@@ -235,9 +222,18 @@ python app.py
 4. Push to branch (`git push origin feature/new-feature`)
 5. Create Pull Request
 
-### 📄 License
+---
 
-Licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+<div align="center">
+
+**⭐ If you find this project useful, don't forget to give it a star! ⭐**
+
+[![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
+[![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
+
+Made with ❤️ by [koesan](https://github.com/koesan)
+
+</div>
 
 ---
 
@@ -393,50 +389,37 @@ python app.py
 ### 💡 Kullanım Kılavuzu
 
 #### Manga Renklendirme
-1. Siyah-beyaz manga resimlerinizi yükleyin
-2. "Colorize" işlemini seçin
-3. AI işleminin tamamlanmasını bekleyin
-4. Renklendirilmiş manganızı indirin
+1. Siyah-beyaz mangayı yükleyin  
+2. **Colorize** seçin  
+3. AI işlemini bekleyin  
+4. Renklendirilmiş mangayı indirin  
 
 #### Manga Çevirisi
-1. Metin içeren manga resimlerini yükleyin (herhangi bir dil)
-2. Kaynak ve hedef dilleri seçin
-3. "Translate" işlemini seçin
-4. Sistem şunları yapacak:
-   - Sayfadaki tüm metinleri algılayacak
-   - Metinleri okunabilir cümlelere gruplayacak
-   - AI inpainting kullanarak orijinal metni kaldıracak
-   - Uygun konumlara çevrilmiş metni ekleyecek
-5. Çevrilmiş metinli mangayı indirin
+1. Metin içeren mangayı yükleyin  
+2. Kaynak ve hedef dili seçin  
+3. **Translate** seçin  
+4. Sistem metni algılar, kaldırır ve çeviriyi ekler  
+5. Çevrilmiş mangayı indirin  
 
-#### Birleşik İşleme
-1. Manga resimlerini yükleyin
-2. Renklendirme + çeviri için "Both" seçin
-3. Dil ayarlarını yapılandırın
-4. Tam işlenmiş mangayı alın (renkli + çevrilmiş)
+#### Birleşik (Renk + Çeviri)
+1. Mangayı yükleyin  
+2. **Both** seçin  
+3. Dil ayarlarını yapın  
+4. Tam işlenmiş mangayı indirin  
 
 #### Video Altyazılama
-1. Video dosyasını yükleyin (MP4, MOV, AVI, vb.)
-2. "Subtitle" işlemini seçin
-3. Konuşma tanıma için kaynak dili seçin
-4. Sistem şunları yapacak:
-   - Videodan ses çıkaracak
-   - AI kullanarak konuşmayı transkript edecek
-   - Hedef dile çevirecek
-   - Düzgün biçimlendirilmiş SRT dosyası oluşturacak
-5. Oluşturulan altyazı dosyasını indirin
+1. Videoyu yükleyin (MP4, MOV, AVI…)  
+2. **Subtitle** seçin  
+3. Kaynak dili seçin  
+4. Sistem transkript, çeviri ve SRT oluşturur  
+5. Altyazıyı indirin  
 
-#### AI Dublajı
-1. Hem video dosyasını hem de SRT altyazı dosyasını yükleyin
-2. "Dubbing" işlemini seçin
-3. Hedef dil ve ses özelliklerini seçin
-4. Sistem şunları yapacak:
-   - Orijinal konuşmacı seslerini analiz edecek
-   - Ses özelliklerini klonlayacak
-   - Çevrilmiş metni kullanarak yeni ses oluşturacak
-   - Orijinal video zamanlamasıyla senkronize edecek
-   - Orijinal ses parçasını değiştirecek
-5. Tam dublajlı videoyu indirin
+#### AI Dublaj
+1. Video + SRT dosyasını yükleyin  
+2. **Dubbing** seçin  
+3. Hedef dil ve ses stilini seçin  
+4. Sistem sesi klonlar, yeni ses üretir ve videoya senkronlar  
+5. Dublajlı videoyu indirin  
 
 ### 🤝 Katkıda Bulunma
 
@@ -445,10 +428,6 @@ python app.py
 3. Değişiklikleri commit edin (`git commit -m 'Yeni özellik ekle'`)
 4. Dala push edin (`git push origin feature/yeni-ozellik`)
 5. Pull Request oluşturun
-
-### 📄 Lisans
-
-Apache License 2.0 altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
 ---
 
@@ -462,3 +441,10 @@ Apache License 2.0 altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE
 Made with ❤️ by [koesan](https://github.com/koesan)
 
 </div>
+
+---
+
+### 📄 License
+
+Licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+
