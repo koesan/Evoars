@@ -182,37 +182,19 @@ python app.py
 ### 💡 Usage Guide
 
 #### Manga Colorization
-1. Upload black-and-white manga
-2. Choose **Colorize**
-3. Wait for AI to process
-4. Download colored manga
+Choose **Colorize** → Upload black-and-white manga → Submit → Download colored manga  
 
 #### Manga Translation
-1. Upload manga with text
-2. Choose source & target languages
-3. Select **Translate**
-4. System detects, removes, and replaces text with translation
-5. Download translated manga
+Choose **Translate** → Upload manga with text → Select source & target languages → Submit → Download translated manga  
 
 #### Combined (Color + Translate)
-1. Upload manga
-2. Choose **Both**
-3. Set languages
-4. Download fully processed manga
+Choose **Both** → Upload manga → Set languages → Submit → Download fully processed manga  
 
 #### Video Subtitling
-1. Upload video (MP4, MOV, AVI…)
-2. Select **Subtitle**
-3. Choose source language
-4. System transcribes, translates, and creates SRT file
-5. Download subtitles
+Choose **Subtitle** → Upload video (MP4, MOV, AVI…) → Select source language → Submit → Download subtitles  
 
 #### AI Dubbing
-1. Upload video + SRT file
-2. Select **Dubbing**
-3. Choose target language & voice style
-4. System clones voices, generates audio, syncs with video
-5. Download dubbed video
+Choose **Dubbing** → Upload video + SRT file → Choose target language & voice style → Submit → Download dubbed video  
 
 ### 🤝 Contributing
 
@@ -389,37 +371,19 @@ python app.py
 ### 💡 Kullanım Kılavuzu
 
 #### Manga Renklendirme
-1. Siyah-beyaz mangayı yükleyin  
-2. **Colorize** seçin  
-3. AI işlemini bekleyin  
-4. Renklendirilmiş mangayı indirin  
+**Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit → İndirin  
 
 #### Manga Çevirisi
-1. Metin içeren mangayı yükleyin  
-2. Kaynak ve hedef dili seçin  
-3. **Translate** seçin  
-4. Sistem metni algılar, kaldırır ve çeviriyi ekler  
-5. Çevrilmiş mangayı indirin  
+**Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit → İndirin  
 
 #### Birleşik (Renk + Çeviri)
-1. Mangayı yükleyin  
-2. **Both** seçin  
-3. Dil ayarlarını yapın  
-4. Tam işlenmiş mangayı indirin  
+**Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit → İndirin  
 
 #### Video Altyazılama
-1. Videoyu yükleyin (MP4, MOV, AVI…)  
-2. **Subtitle** seçin  
-3. Kaynak dili seçin  
-4. Sistem transkript, çeviri ve SRT oluşturur  
-5. Altyazıyı indirin  
+**Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit → Altyazıyı indirin  
 
 #### AI Dublaj
-1. Video + SRT dosyasını yükleyin  
-2. **Dubbing** seçin  
-3. Hedef dil ve ses stilini seçin  
-4. Sistem sesi klonlar, yeni ses üretir ve videoya senkronlar  
-5. Dublajlı videoyu indirin  
+**Dubbing** seçin → Video + SRT dosyasını yükleyin → Dil & ses stilini seçin → Submit → Dublajlı videoyu indirin  
 
 ### 🤝 Katkıda Bulunma
 
@@ -447,4 +411,3 @@ Made with ❤️ by [koesan](https://github.com/koesan)
 ### 📄 License
 
 Licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
-
