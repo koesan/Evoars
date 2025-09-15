@@ -195,13 +195,13 @@ python app.py
 
 #### Manga Colorization = Choose **Colorize** → Upload black-and-white manga → Submit 
 
-#### Manga Translation = Choose **Translate** → Upload manga with text → Select source & target languages → Submit  
+#### Manga Translation = Choose **Translate** → Upload manga → Select source & target languages → Submit  
 
 #### Combined (Color + Translate) = Choose **Both** → Upload manga → Set languages → Submit 
 
-#### Video Subtitling = Choose **Subtitle** → Upload video (MP4, MOV, AVI…) → Select source language → Submit 
+#### Video Subtitling = Choose **Subtitle** → Upload video → Select source language → Submit 
 
-#### AI Dubbing = Choose **Dubbing** → Upload video + SRT file → Choose target language & voice style → Submit  
+#### AI Dubbing = Choose **Dubbing** → Upload video + SRT file → Choose Sourch & target language → Submit  
 
 ### 🤝 Contributing
 
