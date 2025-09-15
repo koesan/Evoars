@@ -32,7 +32,7 @@
 **🇬🇧 Try the previous version of Evoars on Hugging Face (CPU-based, processing may be slower)**  
 **🇹🇷 Evoars'ın önceki sürümünü Hugging Face'te test edin (CPU tabanlı, işlem daha yavaş olabilir)**
 
-[🇺🇸 English](#english) | [🇹🇷 Türkçe](#türkçe)
+[🇺🇸 English](#English) | [🇹🇷 Türkçe](#Türkçe)
 
 </div>
 
