@@ -1,4 +1,6 @@
 # Evoars: Advanced AI Media Processing Platform
+**Professional AI-powered platform for manga colorization, translation, and video processing**  
+**Manga renklendirme, çeviri ve video işleme için profesyonel AI destekli platform**
 
 <div align="center">
 
@@ -6,8 +8,6 @@
 ![Version](https://img.shields.io/badge/Version-1.0-4ECDC4?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
 
-
-<!-- BURAYA EKLE -->
 <div align="center">
 
 **⭐ If you find this project useful, give it a star! / ⭐ Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
@@ -15,12 +15,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
 [![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
 
-Made with ❤️ by [koesan](https://github.com/koesan)
-
 </div>
-
-**Professional AI-powered platform for manga colorization, translation, and video processing**  
-**Manga renklendirme, çeviri ve video işleme için profesyonel AI destekli platform**
 
 | ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
 |:---:|:---:|
