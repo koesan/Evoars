@@ -112,7 +112,6 @@ These repositories contain earlier versions of the project (archived/previous wo
 #### Prerequisites
 - **Docker** (recommended for easy setup)
 - **Python 3.10+** (for manual installation)
-- **NVIDIA GPU** (optional, for faster processing)
 - **DeepL API Key** (free tier available)
 
 #### Option 1: Docker Installation (Recommended)
@@ -143,7 +142,7 @@ cd Evoars
    translator = deepl.Translator("YOUR_DEEPL_API_KEY_HERE")
    ```
    
-   📝 **Get your DeepL API key**: Visit [DeepL API](https://www.deepl.com/pro-api) to obtain your free API key (500,000 characters/month free)
+   📝 **Get your DeepL API key**: Visit [DeepL API](https://www.deepl.com/pro-api) to obtain your free API key.
 
 4. **Build and Run**
 ```bash
@@ -187,29 +186,17 @@ pip install -r requirements.txt
 python app.py
 ```
 
-6. **Access Platform**
-   
-   Visit: **http://localhost:7860**
-
 ### 💡 Usage Guide
 
-#### Manga Colorization = Choose **Colorize** → Upload black-and-white manga → Submit 
+**Manga Colorization = Choose **Colorize** → Upload black-and-white manga → Submit** 
 
-#### Manga Translation = Choose **Translate** → Upload manga → Select source & target languages → Submit  
+**Manga Translation = Choose **Translate** → Upload manga → Select source & target languages → Submit**  
 
-#### Combined (Color + Translate) = Choose **Both** → Upload manga → Set languages → Submit 
+**Combined (Color + Translate) = Choose **Both** → Upload manga → Set languages → Submit** 
 
-#### Video Subtitling = Choose **Subtitle** → Upload video → Select source language → Submit 
+**Video Subtitling = Choose **Subtitle** → Upload video → Select source language → Submit** 
 
-#### AI Dubbing = Choose **Dubbing** → Upload video + SRT file → Choose Sourch & target language → Submit  
-
-### 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/new-feature`)
-3. Commit changes (`git commit -m 'Add new feature'`)
-4. Push to branch (`git push origin feature/new-feature`)
-5. Create Pull Request
+**AI Dubbing = Choose **Dubbing** → Upload video + SRT file → Choose Sourch & target language → Submit**
 
 ---
 
@@ -277,7 +264,6 @@ python app.py
 #### Gereksinimler
 - **Docker** (kolay kurulum için önerilir)
 - **Python 3.10+** (manuel kurulum için)
-- **NVIDIA GPU** (isteğe bağlı, daha hızlı işleme için)
 - **DeepL API Key** (ücretsiz katman mevcut)
 
 #### Seçenek 1: Docker Kurulumu (Önerilen)
@@ -308,7 +294,7 @@ cd Evoars
    translator = deepl.Translator("DEEPL_API_ANAHTARINIZ")
    ```
    
-   📝 **DeepL API anahtarınızı alın**: Ücretsiz API anahtarınız için [DeepL API](https://www.deepl.com/pro-api) sitesini ziyaret edin (ayda 500.000 karakter ücretsiz)
+   📝 **DeepL API anahtarınızı alın**: Ücretsiz API anahtarınız için [DeepL API](https://www.deepl.com/pro-api) sitesini ziyaret edin.
 
 4. **Oluşturun ve Çalıştırın**
 ```bash
@@ -352,29 +338,17 @@ pip install -r requirements.txt
 python app.py
 ```
 
-6. **Platforma Erişin**
-   
-   Şu adresi ziyaret edin: **http://localhost:7860**
-
 ### 💡 Kullanım Kılavuzu
 
-#### Manga Renklendirme = **Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit  
+**Manga Renklendirme = **Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit**
 
-#### Manga Çevirisi = **Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit  
+**Manga Çevirisi = **Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit**
 
-#### Birleşik (Renk + Çeviri) = **Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit  
+**Birleşik (Renk + Çeviri) = **Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit**
 
-#### Video Altyazılama = **Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit  
+**Video Altyazılama = **Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit**
 
-#### AI Dublaj = **Dubbing** seçin → Video + SRT dosyasını yükleyin → kaynak & hedef Dili seçin → Submit  
-
-### 🤝 Katkıda Bulunma
-
-1. Depoyu fork edin
-2. Özellik dalı oluşturun (`git checkout -b feature/yeni-ozellik`)
-3. Değişiklikleri commit edin (`git commit -m 'Yeni özellik ekle'`)
-4. Dala push edin (`git push origin feature/yeni-ozellik`)
-5. Pull Request oluşturun
+**AI Dublaj = **Dubbing** seçin → Video + SRT dosyasını yükleyin → kaynak & hedef Dili seçin → Submit**
 
 ---
 
@@ -388,11 +362,3 @@ This project builds on and uses ideas/code from the following open-source projec
 - [Coqui TTS](https://github.com/coqui-ai/TTS) — text-to-speech / voice cloning tools.  
 - [LaMa (LAMA) Inpainting](https://github.com/advimman/lama) — image inpainting for text removal and repair.  
 - [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) — OCR engine for text detection/extraction.
-
-> Note: these are third-party open-source projects used for research and implementation reference. Please check each repo for their own licenses and citation guidelines.
-
----
-
-### 📄 License
-
-Licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
