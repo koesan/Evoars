@@ -3,7 +3,7 @@
 <div align="center">
 
 ![Evoars](https://img.shields.io/badge/Evoars-AI%20Processing-FF6B6B?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
-![Version](https://img.shields.io/badge/Version-2.0-4ECDC4?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0-4ECDC4?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
 
 **Professional AI-powered platform for manga colorization, translation, and video processing**  
