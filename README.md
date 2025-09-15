@@ -10,7 +10,7 @@
 
 <div align="center">
 
-**⭐ If you find this project useful, give it a star! / ⭐ Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
+**⭐ If you find this project useful, give it a star! / Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
 
 [![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
 [![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
