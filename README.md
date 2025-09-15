@@ -358,20 +358,15 @@ python app.py
 
 ### 💡 Kullanım Kılavuzu
 
-#### Manga Renklendirme
-**Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit  
+#### Manga Renklendirme = **Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit  
 
-#### Manga Çevirisi
-**Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit  
+#### Manga Çevirisi = **Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit  
 
-#### Birleşik (Renk + Çeviri)
-**Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit  
+#### Birleşik (Renk + Çeviri) = **Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit  
 
-#### Video Altyazılama
-**Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit  
+#### Video Altyazılama = **Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit  
 
-#### AI Dublaj
-**Dubbing** seçin → Video + SRT dosyasını yükleyin → Dil & ses stilini seçin → Submit  
+#### AI Dublaj = **Dubbing** seçin → Video + SRT dosyasını yükleyin → kaynak & hedef Dili seçin → Submit  
 
 ### 🤝 Katkıda Bulunma
 
