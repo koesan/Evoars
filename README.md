@@ -6,6 +6,19 @@
 ![Version](https://img.shields.io/badge/Version-1.0-4ECDC4?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
 
+
+<!-- BURAYA EKLE -->
+<div align="center">
+
+**⭐ If you find this project useful, give it a star! / ⭐ Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
+
+[![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
+[![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
+
+Made with ❤️ by [koesan](https://github.com/koesan)
+
+</div>
+
 **Professional AI-powered platform for manga colorization, translation, and video processing**  
 **Manga renklendirme, çeviri ve video işleme için profesyonel AI destekli platform**
 
@@ -182,19 +195,19 @@ python app.py
 ### 💡 Usage Guide
 
 #### Manga Colorization
-Choose **Colorize** → Upload black-and-white manga → Submit → Download colored manga  
+Choose **Colorize** → Upload black-and-white manga → Submit 
 
 #### Manga Translation
-Choose **Translate** → Upload manga with text → Select source & target languages → Submit → Download translated manga  
+Choose **Translate** → Upload manga with text → Select source & target languages → Submit  
 
 #### Combined (Color + Translate)
-Choose **Both** → Upload manga → Set languages → Submit → Download fully processed manga  
+Choose **Both** → Upload manga → Set languages → Submit 
 
 #### Video Subtitling
-Choose **Subtitle** → Upload video (MP4, MOV, AVI…) → Select source language → Submit → Download subtitles  
+Choose **Subtitle** → Upload video (MP4, MOV, AVI…) → Select source language → Submit 
 
 #### AI Dubbing
-Choose **Dubbing** → Upload video + SRT file → Choose target language & voice style → Submit → Download dubbed video  
+Choose **Dubbing** → Upload video + SRT file → Choose target language & voice style → Submit  
 
 ### 🤝 Contributing
 
@@ -203,19 +216,6 @@ Choose **Dubbing** → Upload video + SRT file → Choose target language & voic
 3. Commit changes (`git commit -m 'Add new feature'`)
 4. Push to branch (`git push origin feature/new-feature`)
 5. Create Pull Request
-
----
-
-<div align="center">
-
-**⭐ If you find this project useful, don't forget to give it a star! ⭐**
-
-[![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
-[![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
-
-Made with ❤️ by [koesan](https://github.com/koesan)
-
-</div>
 
 ---
 
@@ -371,19 +371,19 @@ python app.py
 ### 💡 Kullanım Kılavuzu
 
 #### Manga Renklendirme
-**Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit → İndirin  
+**Colorize** seçin → Siyah-beyaz resmi yükleyin → Submit  
 
 #### Manga Çevirisi
-**Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit → İndirin  
+**Translate** seçin → Manga resmini yükleyin → Kaynak & hedef dili seçin → Submit  
 
 #### Birleşik (Renk + Çeviri)
-**Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit → İndirin  
+**Both** seçin → Manga resmini yükleyin → Dil ayarını yapın → Submit  
 
 #### Video Altyazılama
-**Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit → Altyazıyı indirin  
+**Subtitle** seçin → Videoyu yükleyin → Kaynak dili seçin → Submit  
 
 #### AI Dublaj
-**Dubbing** seçin → Video + SRT dosyasını yükleyin → Dil & ses stilini seçin → Submit → Dublajlı videoyu indirin  
+**Dubbing** seçin → Video + SRT dosyasını yükleyin → Dil & ses stilini seçin → Submit  
 
 ### 🤝 Katkıda Bulunma
 
@@ -392,19 +392,6 @@ python app.py
 3. Değişiklikleri commit edin (`git commit -m 'Yeni özellik ekle'`)
 4. Dala push edin (`git push origin feature/yeni-ozellik`)
 5. Pull Request oluşturun
-
----
-
-<div align="center">
-
-**⭐ Bu projeyi yararlı bulduysanız yıldızlamayı unutmayın! ⭐**
-
-[![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
-[![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
-
-Made with ❤️ by [koesan](https://github.com/koesan)
-
-</div>
 
 ---
 
