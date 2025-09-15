@@ -1,6 +1,4 @@
 # Evoars: Advanced AI Media Processing Platform
-**Professional AI-powered platform for manga colorization, translation, and video processing**  
-**Manga renklendirme, çeviri ve video işleme için profesyonel AI destekli platform**
 
 <div align="center">
 
