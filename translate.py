@@ -125,7 +125,7 @@ def beyaz_kare_olustur(dizi, dizi2, img, simple_lama):
 def main(in_memory_files,  source_lang, target_lang):
     results = {}
     simple_lama = SimpleLama()
-    translator = deepl.Translator("da952e5e-99f3-49be-b09f-a4c897d561b7:fx")
+    translator = deepl.Translator("APİ KEYS")
     reader = PaddleOCR(lang=source_lang)
 
     for resim_adı, resim_verisi in tqdm(in_memory_files.items(), desc="İşleniyor", unit="resim"):
