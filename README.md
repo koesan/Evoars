@@ -32,8 +32,6 @@
 **🇬🇧 Try the previous version of Evoars on Hugging Face (CPU-based, processing may be slower)**  
 **🇹🇷 Evoars'ın önceki sürümünü Hugging Face'te test edin (CPU tabanlı, işlem daha yavaş olabilir)**
 
-[🇺🇸 English](#english) | [🇹🇷 Türkçe](#turkce)
-
 </div>
 
 ---
@@ -214,7 +212,7 @@ Choose **Dubbing** → Upload video + SRT file → Choose target language & voic
 
 ---
 
-## 🇹🇷 Turkce
+## 🇹🇷 Türkçe
 
 ### 📖 Genel Bakış
 
@@ -224,12 +222,6 @@ Choose **Dubbing** → Upload video + SRT file → Choose target language & voic
 
 #### 🎨 1. Manga Renklendirme
 **İşlem**: Derin öğrenme sinir ağları kullanarak siyah-beyaz manga sayfalarını canlı renkli sanat eserlerine dönüştürür.
-
-**Teknik Uygulama**:
-- Önceden eğitilmiş AI renklendirme modellerini yükler (`generator.zip`)
-- Görüntüleri PyTorch tabanlı sinir ağları aracılığıyla işler
-- Orijinal görüntü kalitesini ve detayları korur
-- Doğal renk dağılımı için çıktıyı optimize eder
 
 #### 🌐 2. Manga Çevirisi
 **İşlem**: Manga sayfalarındaki tüm metin öğelerini otomatik olarak algılar, çıkarır ve çevirir.
@@ -387,6 +379,30 @@ python app.py
 3. Değişiklikleri commit edin (`git commit -m 'Yeni özellik ekle'`)
 4. Dala push edin (`git push origin feature/yeni-ozellik`)
 5. Pull Request oluşturun
+
+---
+
+## 🔁 Previous Versions / Eski Sürümler
+
+These repositories contain earlier versions of the project (archived/previous work):
+
+- [Manga Comic Colorization and Translation v2](https://github.com/koesan/Manga_Comic_Colorization_and_Translation_v2) — previous (v2) implementation with alternate pipeline.  
+- [manga_cizgi_roman_ceviri_v1](https://github.com/koesan/manga_cizgi_roman_ceviri_v1) — original v1 prototype (Turkish).
+
+---
+
+## 🙏 Acknowledgements / Yararlanılan Açık Kaynak Projeler
+
+This project builds on and uses ideas/code from the following open-source projects — big thanks to the authors:
+
+- [manga-colorization-v2](https://github.com/qweasdd/manga-colorization-v2) — manga colorization techniques and model examples.  
+- [OpenAI Whisper](https://github.com/openai/whisper) — speech-to-text ASR.  
+- [whisperX](https://github.com/m-bain/whisperX) — improved Whisper alignment utilities.  
+- [Coqui TTS](https://github.com/coqui-ai/TTS) — text-to-speech / voice cloning tools.  
+- [LaMa (LAMA) Inpainting](https://github.com/advimman/lama) — image inpainting for text removal and repair.  
+- [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) — OCR engine for text detection/extraction.
+
+> Note: these are third-party open-source projects used for research and implementation reference. Please check each repo for their own licenses and citation guidelines.
 
 ---
 
