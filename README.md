@@ -13,6 +13,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
 [![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
 
+[![Watch the demo](images/demo.png)](https://github.com/koesan/Evoars/blob/main/images/Demo.mp4)
+
 </div>
 
 | ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
