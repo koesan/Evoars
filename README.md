@@ -47,7 +47,7 @@ These repositories contain earlier versions of the project (archived/previous wo
 
 ## English
 
-### 🇺🇸
+### 🇬🇧
 
 ### 📖 Overview
 
