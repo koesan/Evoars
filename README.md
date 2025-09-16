@@ -38,6 +38,8 @@ These repositories contain earlier versions of the project (archived/previous wo
 
 [manga_cizgi_roman_ceviri_v1](https://github.com/koesan/manga_cizgi_roman_ceviri_v1)
 
+---
+
 🇬🇧[English](#english) | 🇹🇷[Türkçe](#türkçe)
 
 </div>
