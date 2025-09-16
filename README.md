@@ -40,9 +40,13 @@ These repositories contain earlier versions of the project (archived/previous wo
 
 </div>
 
+🇬🇧[English](#english) | 🇹🇷[Türkçe](#türkçe)
+
 ---
 
-## 🇺🇸 English
+## English
+
+### 🇺🇸
 
 ### 📖 Overview
 
@@ -200,7 +204,9 @@ python app.py
 
 ---
 
-## 🇹🇷 Türkçe
+## Türkçe
+
+### 🇹🇷 
 
 ### 📖 Genel Bakış
 
