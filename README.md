@@ -1,12 +1,10 @@
-# Evoars: Advanced AI Media Processing Platform
-
 <div align="center">
+
+# Evoars: Advanced AI Media Processing Platform
 
 ![Evoars](https://img.shields.io/badge/Evoars-AI%20Processing-FF6B6B?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
 ![Version](https://img.shields.io/badge/Version-1.0-4ECDC4?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
-
-<div align="center">
 
 **⭐ If you find this project useful, give it a star! / Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
 
@@ -15,7 +13,6 @@
 
 [Demo Video](https://github.com/koesan/Evoars/blob/main/images/Demo.mp4)
 
-</div>
 
 | ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
 |:---:|:---:|
