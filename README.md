@@ -16,7 +16,7 @@
 | ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
 |:---:|:---:|
 
-[Demo Video](https://github.com/koesan/Evoars/blob/main/images/Demo.mp4)
+[![Demo Video](https://img.shields.io/badge/Demo%20Video-▶️-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/koesan/Evoars/blob/main/images/Demo.mp4)
 
 ## 📎 Live Demo - Canlı Demo
 
