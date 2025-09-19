@@ -11,16 +11,15 @@
 [![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
 [![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
 
-[Demo Video](https://github.com/koesan/Evoars/blob/main/images/Demo.mp4)
-
-
-| ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
-|:---:|:---:|
-
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.0-000000?style=flat&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2.2-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Docker](https://img.shields.io/badge/Docker-CUDA%2012.1-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+
+| ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
+|:---:|:---:|
+
+[Demo Video](https://github.com/koesan/Evoars/blob/main/images/Demo.mp4)
 
 ## 📎 Live Demo - Canlı Demo
 
