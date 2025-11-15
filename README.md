@@ -45,11 +45,11 @@ These repositories contain earlier versions of the project (archived/previous wo
 
 ### 📖 Overview
 
-**Evoars** is a comprehensive web-based platform that combines advanced artificial intelligence technologies to automate manga and video processing workflows. The application provides content creators with professional-grade tools through an intuitive web interface.
+**Evoars** is an AI-powered web platform that fully automates the processing of manga, comics, and videos. Using advanced AI techniques, it colorizes manga and comics, translates them into different languages, generates automatic subtitles for videos, and creates dubbed audio by cloning voices. Developed by leveraging open-source projects and models, Evoars offers a modern, flexible, and comprehensive solution for content creation and processing.
 
 ### ✨ Core Features & How They Work
 
-#### 🎨 1. Manga Colorization
+#### 🎨 1. Manga and Comics Colorization
 **Process**: Transforms black-and-white manga pages into vibrant colored artwork using deep learning neural networks.
 
 **Technical Implementation**:
@@ -58,7 +58,7 @@ These repositories contain earlier versions of the project (archived/previous wo
 - Maintains original image quality and details
 - Optimizes output for natural color distribution
 
-#### 🌐 2. Manga Translation
+#### 🌐 2. Manga and Comics Translation
 **Process**: Automatically detects, extracts, and translates all text elements on manga pages.
 
 **Technical Implementation**:
@@ -205,14 +205,14 @@ python app.py
 
 ### 📖 Genel Bakış
 
-**Evoars**, manga ve video işleme iş akışlarını otomatikleştirmek için gelişmiş yapay zeka teknolojilerini birleştiren kapsamlı bir web tabanlı platformdur. Uygulama, içerik üreticilerine sezgisel bir web arayüzü aracılığıyla profesyonel düzeyde araçlar sunar.
+**Evoars**, manga, çizgi roman ve video işleme süreçlerini tamamen otomatikleştiren yapay zekâ destekli bir web platformudur. Yapay zekâ tekniklerini kullanarak manga ve çizgi romanları renklendirir, farklı dillere çevirir; videolara otomatik altyazı ekler ve videolardaki sesleri klonlayarak dublaj oluşturur. Açık kaynaklı projeler ve modellerden yararlanarak geliştirilmiş modern, esnek ve kapsamlı bir içerik işleme çözümüdür.
 
 ### ✨ Temel Özellikler ve Nasıl Çalışır
 
-#### 🎨 1. Manga Renklendirme
+#### 🎨 1. Manga ve Çizgi Roman Renklendirme
 **İşlem**: Derin öğrenme sinir ağları kullanarak siyah-beyaz manga sayfalarını canlı renkli sanat eserlerine dönüştürür.
 
-#### 🌐 2. Manga Çevirisi
+#### 🌐 2. Manga ve Çizgi Roman Çevirisi
 **İşlem**: Manga sayfalarındaki tüm metin öğelerini otomatik olarak algılar, çıkarır ve çevirir.
 
 **Teknik Uygulama**:
