@@ -4,9 +4,6 @@
 
 **⭐ If you find this project useful, give it a star! / Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
 
-[![GitHub stars](https://img.shields.io/github/stars/koesan/Evoars?style=social)](https://github.com/koesan/Evoars)
-[![GitHub forks](https://img.shields.io/github/forks/koesan/Evoars?style=social)](https://github.com/koesan/Evoars/fork)
-
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.0-000000?style=flat&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2.2-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
@@ -14,21 +11,21 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat&logo=apache&logoColor=white)](https://www.apache.org/licenses/LICENSE-2.0)
 
 > [!IMPORTANT]
-> ### 🚀 Work in Progress: Evoars V3 / Geliştirme Süreci
-> 
-> **🇬🇧 English:** > We are actively developing **Evoars V3**! This major update will feature a fully integrated system running **over 20 AI models**.
-> * **UI-Based Selection:** Quickly switch between multiple OCR models, STT (Speech-to-Text), and TTS (Text-to-Speech) engines directly from the interface.
-> * **Advanced Translation:** Comprehensive translation capabilities using **MLLMs** (Multimodal Large Language Models) and various API integrations.
-> * **Enhanced Colorization:** Working on a new structure for higher quality colorization that maintains **character consistency** across different panels.
-> * **Text-to-Manga:** We are refining the generative system that creates manga pages from text (check the *Text To Manga Video* below for the prototype).
+> ### 🚧 Work in Progress: Evoars V3 Architecture / Geliştirme Süreci
+>
+> **🇬🇧 English:** We are actively developing **Evoars V3**, a unified pipeline integrating **over 20 AI models**.
+> * **Modular Selection:** Users will be able to switch between various OCR, STT, TTS, and **MLLM-based** translation engines directly through the UI.
+> * **Character Consistency:** We are refining the colorization engine to maintain consistent character colors across different manga panels.
+> * **Text-to-Manga Generation:** We are expanding the generative capabilities to create manga pages from text (check the *Text To Manga Video* below for the prototype).
+> * **Optimization & Fixes:** We are addressing the limitations of V2, resolving known bugs, and significantly **optimizing system performance** for a smoother experience.
 >
 > ---
-> 
-> **🇹🇷 Türkçe:** > **Evoars V3** üzerinde aktif olarak çalışıyoruz! Bu büyük güncelleme, **20'den fazla yapay zeka modelinin** entegre çalıştığı bir sistem sunacak.
-> * **Arayüzden Seçim:** Birden fazla OCR modeli, STT ve TTS motorları arasında arayüz üzerinden hızlıca geçiş yapabileceksiniz.
-> * **Gelişmiş Çeviri:** **MLLM** (Çok Modlu Büyük Dil Modelleri) ve farklı API bağlantıları ile çok daha kapsamlı çeviri desteği.
-> * **İyileştirilmiş Renklendirme:** Farklı panellerde **karakter tutarlılığını** (character consistency) koruyan, daha kaliteli bir renklendirme yapısı geliştiriyoruz.
+>
+> **🇹🇷 Türkçe:** **20'den fazla yapay zeka modelinin** entegre çalıştığı **Evoars V3** üzerinde çalışıyoruz.
+> * **Modüler Seçim:** Kullanıcılar, arayüz üzerinden farklı OCR, STT, TTS ve **MLLM tabanlı** çeviri motorları arasında anlık geçiş yapabilecek.
+> * **Karakter Tutarlılığı:** Farklı paneller arasında karakterlerin renk uyumunu koruyan gelişmiş bir renklendirme yapısı geliştiriyoruz.
 > * **Metinden Manga Üretimi:** Metin girdilerini manga sayfasına dönüştüren sistemi geliştiriyoruz (Prototip halini aşağıdaki *Text To Manga Video* kısmında görebilirsiniz).
+> * **Optimizasyon ve İyileştirmeler:** V2 sürümündeki eksiklikleri gideriyor, bilinen hataları çözüyor ve çok daha akıcı bir deneyim için **sistem performansını optimize ediyoruz.**
 
 | ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
 |:---:|:---:|
