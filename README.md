@@ -13,6 +13,23 @@
 [![Docker](https://img.shields.io/badge/Docker-CUDA%2012.1-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat&logo=apache&logoColor=white)](https://www.apache.org/licenses/LICENSE-2.0)
 
+> [!IMPORTANT]
+> ### 🚀 Work in Progress: Evoars V3 / Geliştirme Süreci
+> 
+> **🇬🇧 English:** > We are actively developing **Evoars V3**! This major update will feature a fully integrated system running **over 20 AI models**.
+> * **UI-Based Selection:** Quickly switch between multiple OCR models, STT (Speech-to-Text), and TTS (Text-to-Speech) engines directly from the interface.
+> * **Advanced Translation:** Comprehensive translation capabilities using **MLLMs** (Multimodal Large Language Models) and various API integrations.
+> * **Enhanced Colorization:** Working on a new structure for higher quality colorization that maintains **character consistency** across different panels.
+> * **Text-to-Manga:** We are refining the generative system that creates manga pages from text (check the *Text To Manga Video* below for the prototype).
+>
+> ---
+> 
+> **🇹🇷 Türkçe:** > **Evoars V3** üzerinde aktif olarak çalışıyoruz! Bu büyük güncelleme, **20'den fazla yapay zeka modelinin** entegre çalıştığı bir sistem sunacak.
+> * **Arayüzden Seçim:** Birden fazla OCR modeli, STT ve TTS motorları arasında arayüz üzerinden hızlıca geçiş yapabileceksiniz.
+> * **Gelişmiş Çeviri:** **MLLM** (Çok Modlu Büyük Dil Modelleri) ve farklı API bağlantıları ile çok daha kapsamlı çeviri desteği.
+> * **İyileştirilmiş Renklendirme:** Farklı panellerde **karakter tutarlılığını** (character consistency) koruyan, daha kaliteli bir renklendirme yapısı geliştiriyoruz.
+> * **Metinden Manga Üretimi:** Metin girdilerini manga sayfasına dönüştüren sistemi geliştiriyoruz (Prototip halini aşağıdaki *Text To Manga Video* kısmında görebilirsiniz).
+
 | ![Evoars Interface](images/web.png) | ![Evoars Processing](images/web2.png) |
 |:---:|:---:|
 
