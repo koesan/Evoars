@@ -4,8 +4,6 @@
 
 ### 🏆 First Place Award – Turkcell Future Technology Leaders Competition
 
-This project won **1st Place** in the **Turkcell Future Technology Leaders Competition**. The image above shows the award ceremony where the prize was received for the Evoars project.
-
 </div>
 
 <div align="center">
