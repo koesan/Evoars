@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="images/1748628484900.jpeg" alt="Turkcell Yarının Teknoloji Liderleri Competition Award" width="900"/>
+<img src="images/1748628484900.jpeg" alt="Turkcell Yarının Teknoloji Liderleri Competition Award" width="600"/>
 
 ### 🏆 First Place Award – Turkcell Future Technology Leaders Competition
 
