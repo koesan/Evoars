@@ -1,5 +1,15 @@
 <div align="center">
 
+<img src="images/1748628484900.jpeg" alt="Turkcell Yarının Teknoloji Liderleri Competition Award" width="900"/>
+
+### 🏆 First Place Award – Turkcell Future Technology Leaders Competition
+
+This project won **1st Place** in the **Turkcell Future Technology Leaders Competition**. The image above shows the award ceremony where the prize was received for the Evoars project.
+
+</div>
+
+<div align="center">
+
 # Evoars: Advanced AI Media Processing Platform
 
 **⭐ If you find this project useful, give it a star! / Bu projeyi yararlı buluyorsanız yıldızlayın! ⭐**
